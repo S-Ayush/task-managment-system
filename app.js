@@ -22,6 +22,9 @@ app.use(
     path.join(__dirname, "task-management-system-frontend", "build")
   )
 );
+app.get("/", (req, res) => {
+  res.send("hello");
+});
 app.get("/login", function (req, res) {
   res.sendFile(
     path.join(
