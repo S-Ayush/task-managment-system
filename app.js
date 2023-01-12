@@ -15,7 +15,7 @@ app.use(
     credentials: true,
   })
 );
-app.use("/", route);
+// app.use("/", route);
 
 app.use(
   express.static(
@@ -35,14 +35,14 @@ app.get("/login", function (req, res) {
     )
   );
 });
-mongoose
-  .connect("mongodb://localhost:27017/crud")
-  .then(() => {
-    console.log("connection done");
-  })
-  .catch((error) => {
-    console.log("connection error", error);
-  });
+// mongoose
+//   .connect("mongodb://localhost:27017/crud")
+//   .then(() => {
+//     console.log("connection done");
+//   })
+//   .catch((error) => {
+//     console.log("connection error", error);
+//   });
 
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => console.log(`port on : ${PORT}`));
