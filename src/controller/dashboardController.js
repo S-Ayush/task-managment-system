@@ -1,10 +1,10 @@
-// const newTask = require("../../src/model/taskModel");
-const newTask = require("../model/task");
+// const task = require("../../src/model/taskModel");
+const task = require("../model/task");
 const dashboardTask = async (req, res) => {
   const { result, dateFilter } = req.body;
 
   try {
-    var data = await newTask.aggregate([
+    var data = await task.aggregate([
       {
         $match: {
           $and: [
@@ -111,7 +111,7 @@ const dashboardTask = async (req, res) => {
 
 const StatusChart = async (req, res) => {
   try {
-    var sData = await newTask.aggregate([
+    var sData = await task.aggregate([
       {
         $match: {
           [req.rootUser?.role === "admin" ? "created_by" : "assign_to"]:
