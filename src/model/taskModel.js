@@ -28,5 +28,5 @@ const tasks = new mongoose.Schema({
   task_status: String,
 });
 
-const data = mongoose.model("task", tasks);
-module.exports = data;
+const taskList = new mongoose.model("task", tasks);
+module.exports = taskList;

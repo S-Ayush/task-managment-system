@@ -6,6 +6,6 @@ const userSchema = new mongoose.Schema({
   role: String,
   designation: String,
 });
-const userList = mongoose.model("login", userSchema);
+const userList = new mongoose.model("login", userSchema);
 
 module.exports = userList;
