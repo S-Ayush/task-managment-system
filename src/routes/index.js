@@ -7,7 +7,7 @@ const route = express.Router();
 
 route.use("/", loginRoute);
 route.use("/", userRoute);
-route.use("/", taskRoute);
-route.use("/", dashboardRoute);
+// route.use("/", taskRoute);
+// route.use("/", dashboardRoute);
 
 module.exports = route;
