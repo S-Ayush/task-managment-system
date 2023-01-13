@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const taskList = require("../model/taskModel");
-const userList = require("../model/usersmodel");
+const taskList = require("../../src/model/taskModel");
+const userList = require("../model/userModel");
 
 const insertTask = async (req, res) => {
   try {
@@ -52,27 +52,6 @@ const getTask = async (req, res) => {
                 status !== undefined ? { task_status: status } : { status },
               ],
             },
-            // {
-            //   $or: [
-            //     { ...personName },
-
-            //     req.rootUser.role === "admin"
-            //       ? {
-            //           assign_to: {
-            //             $in: personName.map((item) =>
-            //               mongoose.Types.ObjectId(item)
-            //             ),
-            //           },
-            //         }
-            //       : {
-            //           created_by: {
-            //             $in: personName.map((item) =>
-            //               mongoose.Types.ObjectId(item)
-            //             ),
-            //           },
-            //         },
-            //   ],
-            // },
 
             {
               $or: [

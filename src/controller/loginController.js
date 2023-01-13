@@ -1,5 +1,5 @@
 const express = require("express");
-const loginList = require("../model/usersmodel");
+const loginList = require("../model/userModel");
 const jwt = require("jsonwebtoken");
 
 const loginData = async (req, res) => {

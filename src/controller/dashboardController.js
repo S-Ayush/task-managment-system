@@ -1,4 +1,4 @@
-const taskList = require("../model/taskModel");
+const taskList = require("../../src/model/taskModel");
 const dashboardTask = async (req, res) => {
   const { result, dateFilter } = req.body;
 

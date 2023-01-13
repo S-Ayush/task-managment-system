@@ -1,5 +1,5 @@
 const express = require("express");
-const userList = require("../model/usersmodel");
+const userList = require("../model/userModel");
 const { sendResponse } = require("../helpers/helpers");
 
 const insertData = async (req, res) => {
