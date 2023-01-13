@@ -1,7 +1,7 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-// const route = require("./src/routes/index");
+const route = require("./src/routes/index");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const path = require("path");
@@ -15,7 +15,7 @@ app.use(
     credentials: true,
   })
 );
-// app.use("/", route);
+app.use("/", route);
 
 app.use(
   express.static(
@@ -35,14 +35,14 @@ app.get("/login", function (req, res) {
     )
   );
 });
-// mongoose
-//   .connect("mongodb://localhost:27017/crud")
-//   .then(() => {
-//     console.log("connection done");
-//   })
-//   .catch((error) => {
-//     console.log("connection error", error);
-//   });
+mongoose
+  .connect("mongodb+srv://mansi:mansiii@123@cluster0.az1at76.mongodb.net/test")
+  .then(() => {
+    console.log("connection done");
+  })
+  .catch((error) => {
+    console.log("connection error", error);
+  });
 
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => console.log(`port on : ${PORT}`));
