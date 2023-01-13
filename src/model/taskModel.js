@@ -14,5 +14,5 @@ let taskSchema = new mongoose.Schema({
   task_status: String,
 });
 
-let taskList = mongoose.model("tasks", taskSchema);
+const taskList = mongoose.model("tasks", taskSchema);
 module.exports = taskList;
