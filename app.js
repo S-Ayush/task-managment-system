@@ -36,7 +36,7 @@ app.get("/login", function (req, res) {
   );
 });
 mongoose
-  .connect("mongodb+srv://mansi:mansiii@123@cluster0.az1at76.mongodb.net/test")
+  .connect("mongodb+srv://mansi:mansiii@123@cluster0.az1at76.mongodb.net/crud")
   .then(() => {
     console.log("connection done");
   })
