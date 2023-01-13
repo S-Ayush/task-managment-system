@@ -1,4 +1,4 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 const taskList = require("../model/taskModel");
 const userList = require("../model/usersmodel");
 
