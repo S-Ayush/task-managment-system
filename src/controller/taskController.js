@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 // const task = require("../model/taskModel");
-const task = require("../model/task");
+// const task = require("../model/task.js");
+const task = require("../../src/model/task");
 const userList = require("../model/userModel");
 
 const insertTask = async (req, res) => {
