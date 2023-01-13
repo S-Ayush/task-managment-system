@@ -35,9 +35,10 @@ app.get("/login", function (req, res) {
     )
   );
 });
+mongoose.set("strictQuery", true);
 mongoose
   .connect(
-    "mongodb+srv://mansi:mansiii%40123@cluster0.az1at76.mongodb.net/test"
+    "mongodb+srv://mansi:mansiii%40123@cluster0.az1at76.mongodb.net/crud?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log("connection done");
