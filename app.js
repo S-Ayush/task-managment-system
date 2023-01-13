@@ -13,6 +13,7 @@ const cors = require("cors");
 app.use(
   cors({
     credentials: true,
+    origin: "*",
   })
 );
 app.use("/", route);
@@ -22,10 +23,8 @@ app.use(
     path.join(__dirname, "task-management-system-frontend", "build")
   )
 );
-app.get("/", (req, res) => {
-  res.send("hello");
-});
-app.get("/login", function (req, res) {
+
+app.get("/", function (req, res) {
   res.sendFile(
     path.join(
       __dirname,
