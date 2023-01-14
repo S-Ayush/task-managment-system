@@ -12,6 +12,6 @@ const taskschema = new mongoose.Schema({
     assignId: mongoose.Schema.Types.ObjectId,
     task_status: String,
 });
-const testModel = new mongoose.model("task", taskschema);
+const taskModel = new mongoose.model("task", taskschema);
 
-module.exports = testModel;
+module.exports = taskModel;

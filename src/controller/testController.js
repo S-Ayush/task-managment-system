@@ -1,10 +1,10 @@
 const express = require("express");
 const { sendResponse } = require("../helpers/helpers");
-const testModel = require("../model/testmodel");
+const taskModel = require("../model/testmodel");
 
 const getData = (req, res) => {
   try {
-    testModel.find((err, val) => {
+    taskModel.find((err, val) => {
       if (err) {
         console.log(err);
       } else {
