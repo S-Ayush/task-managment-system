@@ -1,6 +1,6 @@
 const express = require("express");
 const { sendResponse } = require("../helpers/helpers");
-const taskModel = require("../model/testmodel");
+const taskModel = require("../model/taskModel");
 
 const getData = (req, res) => {
   try {
