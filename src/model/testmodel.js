@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const testschema = new mongoose.Schema({
+const taskschema = new mongoose.Schema({
     task_name: String,
     task_description: String,
     created_at: { type: Date, default: Date.now, required: true },
@@ -12,6 +12,6 @@ const testschema = new mongoose.Schema({
     assignId: mongoose.Schema.Types.ObjectId,
     task_status: String,
 });
-const testModel = new mongoose.model("test", testschema);
+const testModel = new mongoose.model("task", taskschema);
 
 module.exports = testModel;
