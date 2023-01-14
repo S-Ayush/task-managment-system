@@ -24,7 +24,7 @@ app.use(
   )
 );
 
-app.get(["/","/login","/dashboard","/users","tasks"], function (req, res) {
+app.get(["/","/login","/dashboard","/users","/tasks"], function (req, res) {
   res.sendFile(
     path.join(
       __dirname,
