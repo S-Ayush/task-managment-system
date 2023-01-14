@@ -1,5 +1,5 @@
 const express = require("express");
-const { getData } = require("../controller/testController");
+// const { getData } = require("../controller/testController");
 const dashboardRoute = require("./dashboardRoute");
 const loginRoute = require("./loginRoute");
 const taskRoute = require("./taskRoute");
