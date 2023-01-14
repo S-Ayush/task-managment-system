@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
+const taskModel = require("../model/taskModel");
 // const task = require("../model/taskModel");
 // const task = require("../model/task.js");
-const task = require("../../src/model/task");
 const userList = require("../model/userModel");
 
 const insertTask = async (req, res) => {
   try {
-    const data = new task({
+    const data = new taskModel({
       task_name: req.body.task_name,
       task_description: req.body.task_description,
       created_by: req.rootUser._id,
@@ -41,7 +41,7 @@ const assignData = async (req, res) => {
 const getTask = async (req, res) => {
   const { status, personName } = req.body;
   try {
-    var data = await task.aggregate([
+    var data = await taskModel.aggregate([
       {
         $match: {
           $and: [
@@ -104,7 +104,7 @@ const getTask = async (req, res) => {
 const updateTask = (req, res) => {
   try {
     if (req.rootUser.role === "admin") {
-      task.findOneAndUpdate(
+      taskModel.findOneAndUpdate(
         { _id: req.params.id },
         {
           $set: {
@@ -132,7 +132,7 @@ const updateTask = (req, res) => {
 const deleteTask = (req, res) => {
   try {
     if (req.rootUser.role === "admin") {
-      task.deleteOne({ _id: req.params.id }, (err, val) => {
+      taskModel.deleteOne({ _id: req.params.id }, (err, val) => {
         if (err) {
           console.log(err);
         } else {
@@ -149,7 +149,7 @@ const deleteTask = (req, res) => {
 const startTask = (req, res) => {
   try {
     if (req.rootUser.role === "user") {
-      task.findOneAndUpdate(
+      taskModel.findOneAndUpdate(
         { _id: req.params.id },
         { $set: { start_task: Date.now(), task_status: "in progress" } },
         (err, data) => {
@@ -169,7 +169,7 @@ const startTask = (req, res) => {
 };
 const endTask = async (req, res) => {
   try {
-    let task = await task.findById(req.params.id);
+    let task = await taskModel.findById(req.params.id);
     let startTime = task.start_task;
     let EndTime = new Date();
     let time = EndTime.getTime() - startTime?.getTime();
@@ -178,7 +178,7 @@ const endTask = async (req, res) => {
       console.log("task is not started");
     } else {
       if (req.rootUser.role === "user") {
-        task.findOneAndUpdate(
+        taskModel.findOneAndUpdate(
           { _id: req.params.id },
           {
             $set: {
@@ -206,7 +206,7 @@ const endTask = async (req, res) => {
 
 const verifyStatus = async (req, res) => {
   let id = req.params.id;
-  var data = await task.findByIdAndUpdate(
+  var data = await taskModel.findByIdAndUpdate(
     { _id: id },
     { $set: { task_status: req.body.task_status } }
   );
